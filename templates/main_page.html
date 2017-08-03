@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>TTYL</title>
- 
+
         <!-- Bootstrap -->
         <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -21,21 +21,20 @@
                     <div class="masthead clearfix">
                         <div class="inner">
                             <h3 class="masthead-brand">TTYL</h3>
-                            <nav>
-                                <ul class="nav masthead-nav">
-                                    <li class="active"><a href="#">Home</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                     <div class="inner cover">
-                        <h1 class="cover-heading">Send a text when you want.</h1>
-                        <p class="lead">TTYL is an app that allows you to send a text message whenever you want it to be sent. Enter the site and start taking control of your messages.</p>
-                        <p class="lead">
-                        <a href="{{ url_for('main_page') }}" class="btn btn-lg btn-default">Enter!</a>
-                        </p>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Your number</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name='user_num' value="{{ request.form['user_num'] }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Number to send text to</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" name='sending_num' value="{{ request.form['sending_num'] }}">
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Schedule!</button>
+                        </form>
                     </div>
 
                     <div class="mastfoot">

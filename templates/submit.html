@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title href="https://github.com/eyalfoni">TTYL</title>
-
+        <title>TTYL</title>
+ 
         <!-- Bootstrap -->
         <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -29,25 +29,14 @@
                         </div>
                     </div>
                     <div class="inner cover">
-                        <form method="POST">
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">Your number</label>
-                                <input type="tel" name='user_num' class="form-control" pattern="[0-9]{10}" placeholder="Your number" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">Number to send text to</label>
-                                <input type="tel" name='sending_num' class="form-control" pattern="[0-9]{10}" placeholder="Number to send message to" value="{{ request.form['sending_num'] }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">Date to send</label>
-                                <input type="datetime-local" name='date' class="form-control" placeholder="Date" value="{{ request.form['date'] }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">Message</label><br />
-                                <textarea name="msg" rows="8" cols="90" class="form-control" placeholder=Message required></textarea>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Schedule!</button>
-                        </form>
+                        <h1 class="cover-heading">Message scheduled!</h1>
+                        <p class="lead">Thank you for using our site! TTYL is still under construction and is not fully functional yet. Below is a receipt of your submission: </p>
+                        <ul style="list-style: none;">
+                            <li>Your number: {{ user_num }}</li>
+                            <li>Number to send message to: {{ sending_num  }}</li>
+                            <li>Date/time to send message: {{ date }}</li>
+                            <li>Message: {{ msg }}</li>
+                        </ul>  
                     </div>
 
                     <div class="mastfoot">

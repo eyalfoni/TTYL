@@ -24,6 +24,10 @@ a:hover {
  *  * Base structure
  *   */
 
+textarea {
+    color: #000;
+}
+
 html,
 body {
     height: 100%;

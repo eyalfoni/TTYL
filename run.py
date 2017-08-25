@@ -1,11 +1,13 @@
 from __future__ import print_function
-from flask import Flask, url_for, render_template, request
+from flask import Flask, render_template, request
 from pymongo import MongoClient
+from db_checker import db_checker
 app = Flask(__name__)
 
 client = MongoClient()
 db = client.ttyl
 ttyl_local = db.ttyl_local_collection
+db_checker()
 
 # This main page is a welcome page
 # The user click a button and enters

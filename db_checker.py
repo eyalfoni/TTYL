@@ -1,6 +1,7 @@
 from __future__ import print_function
 from pymongo import MongoClient
 from datetime import datetime
+from text import send_text
 import threading
 import time
 
@@ -14,10 +15,7 @@ def loop_db():
         for doc in ttyl_local.find():
             pass
             curr_time = datetime.now()
-            # 0001-02-01T02:03
-            # year-month-dayThour:minute
-            doc_time = datetime.strptime(doc['date'].replace('T',' '), '%Y-%m-%d %H:%M')
-            # datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
+            doc_time = datetime.strptime(doc['date'].replace('T', ' '), '%Y-%m-%d %H:%M')
             if same_minute(curr_time, doc_time):
                 send_text(doc)
         time.sleep(30)

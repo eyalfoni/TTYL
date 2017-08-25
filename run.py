@@ -41,7 +41,3 @@ def main_page():
                                sending_num=sending_num, date=date, msg=msg)
     else:
         return 'What\'s going on?'
-
-
-def schedule_text():
-    pass
